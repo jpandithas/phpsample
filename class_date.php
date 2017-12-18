@@ -4,6 +4,32 @@
  * Time: 8:30 PM
  */
 
+class NewDate extends Date
+{
+    protected $curr_date;
+
+    protected function UpdateDate()
+    {
+        $this->curr_date = getdate();
+    }
+
+    public function getCurrentDate()
+    {
+        $this->UpdateDate();
+        $day = $this->curr_date['mday'];
+        $month = $this->curr_date['mon'];
+        $year = $this->curr_date['year'];
+        return $day."/".$month."/".$year;
+    }
+
+    public function SayAge()
+    {
+        return "Age: ".$this->CalcAge();
+    }
+
+
+}
+
 class Date
 {
     protected  $day;
@@ -25,6 +51,12 @@ class Date
             $this->year = 1900;
         }
 
+    }
+
+   final public function CalcAge()
+    {
+        $curr_date = getdate();
+        return $curr_date['year']-$this->year;
     }
 
     public function GetDate($separator='/')

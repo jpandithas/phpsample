@@ -30,9 +30,15 @@ echo "<hr>";
 include_once("class_date.php");
 
 $date = new Date(01,10,1975);
-echo $date->GetDate("-");
+echo $date->GetDate("-")."<br>";
 
 
+$newclassdate = new NewDate(10,10,2017);
+
+echo $newclassdate->getCurrentDate();
+
+
+var_dump(getdate());
 
 
 class Student
