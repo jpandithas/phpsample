@@ -20,8 +20,10 @@ if (isset($_POST['submit']) and $_POST['submit']=="Register")
             echo RegisterForm();
         }
         else
-        {
-            $sql="INSERT INTO `usr` VALUES ('' , '{$_POST['username']}', '{$_POST['password']}')";
+        {   
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+            $sql="INSERT INTO `usr` VALUES ('' , '$username', '$password')";
             echo $sql;
             $result = $stmt->query($sql);
             echo $stmt->lastInsertId();
