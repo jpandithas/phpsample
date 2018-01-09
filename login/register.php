@@ -37,11 +37,16 @@ else
 }
 
 
-
+function Sanitize($var)
+{
+	return strip_tags($var);
+}
 
 function Validate_Registration($username, $password)
 {
-    if (empty(strip_tags($username)) and empty(strip_tags($password)))
+	$usr = Sanitize($username);
+	$pass = Sanitize($password);
+    if (empty($usr) or empty($pass))
     {
         return false;
     }
