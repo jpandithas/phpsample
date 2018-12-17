@@ -1,0 +1,25 @@
+/* This is a comment */
+
+* {
+    color: blue;
+}
+
+body {
+    background-color: azure;
+}
+
+table {
+    background-color: lightgray;
+    border: solid 2px darkgray;
+    border-radius: 1%;
+    box-shadow: 3px 3px 3px black;
+}
+
+th {
+    font-family: Arial;
+    border-bottom: solid 1px black;
+}
+
+th:hover {
+    background-color: aqua;
+}

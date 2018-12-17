@@ -1,85 +1,48 @@
 <?php
 /**
- * Date: 18-Dec-17
- * Time: 6:44 PM
+ * Date: 09-Jan-17
+ * Time: 7:00 PM
  */
 
+class BaseCharacter
+{
+    public $health;
+    public $armor;
+    protected $abilities;
 
-$vehicle  = new Vehicle("loco", "blue", "DB");
-echo $vehicle->Start();
+    public function ApplyAbilities()
+    {
+      echo "Abilities applied";
+    }
+
+    protected function CheckAbilities()
+    {
+        return true;
+    }
+}
+
+class Hero extends BaseCharacter
+{
+   public $name;
+
+    public function SayName()
+    {
+        echo "I am ".$this->name;
+    }
+
+    public function ApplyAbilities()
+    {
+        echo "My HERO ABILITIES!!";
+    }
+}
+
+$basechar = new BaseCharacter();
+$basechar->ApplyAbilities();
 
 echo "<hr>";
 
-$car1 = new Car("Saloon", "Blue", "Jeep");
-echo $car1->Start();
-$car2 = new Car("Sport", "Red", "Ferrari");
-$car2::$sound = "Sound1";
+$hero = new Hero();
+$hero->ApplyAbilities();
 
-echo "<br>".$car1::$sound;
-
-$copier  = new Machine();
-echo $copier->Start();
-
-interface iPrintable
-{
-    public function PrintData();
-}
-
-class Machine
-{
-    public function Start()
-    {
-        return "Machine started";
-    }
-
-    public function Stop()
-    {
-        return "Machine Stopped";
-    }
-}
-
-class Vehicle implements iPrintable
-{
-    public $type;
-    public $color;
-    public $brand;
-
-    public function __construct($type, $color, $brand)
-    {
-        $this->type = $type;
-        $this->color = $color;
-        $this->brand = $brand;
-    }
-
-    public function PrintData()
-    {
-        echo "I am printing";
-    }
-
-    public function Start()
-    {
-        return "Started!";
-    }
-
-    public function Stop()
-    {
-        return "Stopped!";
-    }
-
-}
-
-class Car extends Vehicle implements iPrintable
-{
-
-    public static $sound;
-
-    public function Start()
-    {
-        return "the ".$this->type." has ".parent::Start();
-    }
-
-}
 
 ?>
-
-
